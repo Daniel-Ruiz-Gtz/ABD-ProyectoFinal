@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Base de Datos</title>
+	<link rel="icon" href="static/img/BD.ico">
+	
+	<!--JQUERY-->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<!-- Los iconos tipo Solid de Fontawesome-->
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	
+	<!-- Nuestro css-->
+	<link rel="stylesheet" type="text/css" href="static/css/user-form.css"
+		th:href="@{/css/user-form.css}">
+	<!-- DATA TABLE -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+	        $('#userList').DataTable();
+	    } );
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+			<ul class="nav nav-tabs justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link active" id="list-tab" data-toggle="tab" href="#Empleado" role="tab" aria-controls="list" aria-selected="false">Empleado</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="list-tab" data-toggle="tab" href="#Sucursal" role="tab" aria-controls="list" aria-selected="false">Sucursal</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="list-tab" data-toggle="tab" href="#Cliente" role="tab" aria-controls="list" aria-selected="false">Cliente</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="list-tab" data-toggle="tab" href="#ProductoServicio" role="tab" aria-controls="list" aria-selected="false">ProductoServicio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="list-tab" data-toggle="tab" href="#Orden" role="tab" aria-controls="list" aria-selected="false">Orden</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="Empleado" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Empleados <a href="form.html" title="Nuevo Empleado"><i class="fas fa-user-plus"></i></a> <a href="#" title="Respaldo en Frio"><i class="fas fa-snowflake"></i></i></a> <a href="#" title="Respaldo en Caliente"><i class="fas fa-fire"></i></a> </h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Apellido</th>
+										<th scope="col">Salario</th>
+										<th scope="col">Sucursal</th>
+										<th></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Daniel</td>
+										<td>Ruiz</td>
+										<td>$30,000</td>
+										<td>Centro</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Alitzel</td>
+										<td>Hernandez</td>
+										<td>$35,000</td>
+										<td>Oblatos</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Ivan</td>
+										<td>Gutierrez</td>
+										<td>$25,000</td>
+										<td>Las Pramides</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="Sucursal" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Sucursal <a href="#"><i class="fas fa-user-plus"></i></a> <a href="#"><i class="fas fa-snowflake"></i></i></a> <a href="#"><i class="fas fa-fire"></i></a> </h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Referencia</th>
+										<th scope="col">Dirección</th>
+										<th scope="col">Telefono</th>
+										<th></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Centro</td>
+										<td>C. Esmeralda 921, El Retiro, 44280 Guadalajara, Jal.</td>
+										<td>3321927007</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Oblatos</td>
+										<td>Av. Circunvalación Oblatos 237, Oblatos, 44700 Guadalajara, Jal.</td>
+										<td>3313875557</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Las Piramides</td>
+										<td>Calle Lat. Periferico Sur #2200, Las pirámides, 45079 Zapopan, Jal.</td>
+										<td>3351181821</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="Cliente" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Cliente <a href="#"><i class="fas fa-user-plus"></i></a> <a href="#"><i class="fas fa-snowflake"></i></i></a> <a href="#"><i class="fas fa-fire"></i></a> </h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Apellido</th>
+										<th scope="col">Dirección</th>
+										<th scope="col">Telefono</th>
+										<th></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Omar</td>
+										<td>Gonzalez</td>
+										<td>Av. Cvln. Jorge Álvarez del Castillo 1482, Lomas del Country, 44610 Guadalajara, Jal.</td>
+										<td>3338230463</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Alex</td>
+										<td>Campos</td>
+										<td>Calz del Federalismo Nte 1940, La Guadalupana, 44220 Guadalajara, Jal.</td>
+										<td>3338230463</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Daniel</td>
+										<td>Ruiz</td>
+										<td>Av. Cvln. Jorge Álvarez del Castillo 1482, Lomas del Country, 44610 Guadalajara, Jal.</td>
+										<td>3338532632</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">4</th>
+										<td>Sanitago</td>
+										<td>Valle</td>
+										<td>Enrique Díaz de León 1780, San Miguel de Mezquitan, 44260 Guadalajara, Jal.</td>
+										<td>3338242425</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="ProductoServicio" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Producto Servicio <a href="#"><i class="fas fa-user-plus"></i></a> <a href="#"><i class="fas fa-snowflake"></i></i></a> <a href="#"><i class="fas fa-fire"></i></a> </h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Titulo</th>
+										<th scope="col">Descripción</th>
+										<th scope="col">Precio</th>
+										<th></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Excursión Nacional</td>
+										<td>La excursión nacional incluye guia, tranporte, alimentos, recorrido por las principales atracciones de la zona y vales de descuento de tiendas autorizadas. Comprobar disponibilidad con el catalogo de destinos.</td>
+										<td>$5,000</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Excursión Internacional</td>
+										<td>La excursión internacional incluye guia, tranporte, alimentos, recorrido por las principales atracciones de la zona y vales de descuento de tiendas autorizadas. Comprobar disponibilidad con el catalogo de destinos.</td>
+										<td>$15,000</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="Orden" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Orden <a href="#"><i class="fas fa-user-plus"></i></a> <a href="#"><i class="fas fa-snowflake"></i></i></a> <a href="#"><i class="fas fa-fire"></i></a> </h4>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">Folio</th>
+										<th scope="col">ID Cliente</th>
+										<th scope="col">ID Empleado Venta</th>
+										<th scope="col">Sucursal</th>
+										<th scope="col">ProductoServicio</th>
+										<th scope="col">Precio Total</th>
+										<th></th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>1</td>
+										<td>3</td>
+										<td>Oblatos</td>
+										<td>Excursión Nacional</td>
+										<td>$5,000</td>
+										<td>
+											<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
